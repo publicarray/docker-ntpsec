@@ -20,3 +20,14 @@ docker run -it --rm --name ntpsec -p123:123/udp publicarray/ntpsec --help
 # https://github.com/docker/swarmkit/pull/1565
 # docker stack deploy --compose-file=docker-compose.yml ntp-server
 ```
+
+## Prevent conntrack from filling up
+
+```sh
+# get current status:
+$ conntrack -C
+$ sysctl net.netfilter.nf_conntrack_max
+
+# disable conntrack on NTP port 123
+$ iptables -t raw -A PREROUTING -p udp -m udp --dport 123 -j NOTRACK
+$ iptables -t raw -A OUTPUT -p udp -m udp --sport 123 -j NOTRACK
