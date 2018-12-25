@@ -9,9 +9,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # https://github.com/ntpsec/ntpsec/releases
-ENV NTPSEC_VERSION 1.1.0
+ENV NTPSEC_VERSION 1.1.2
 ENV NTPSEC_DOWNLOAD_URL "https://ftp.ntpsec.org/pub/releases/ntpsec-${NTPSEC_VERSION}.tar.gz"
-ENV NTPSEC_SHA256 65333385e56fb571d6a9bae8174a74c805c3ea4e79fbe450db98c3825caafddb
+ENV NTPSEC_SHA256 9dfaf1d791109160b3632a203bd75c784c54902442cea36983d5131b9f3b0111
 
 RUN set -x && \
     mkdir -p /tmp && \

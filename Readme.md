@@ -8,6 +8,8 @@ docker build t publicarray/ntpsec .
 docker run -it --rm --name ntpsec -p123:123/udp --cap-add SYS_TIME --cap-add SYS_NICE publicarray/ntpsec
 # Run detached
 docker run -d --rm --name ntpsec -p123:123/udp --cap-add SYS_TIME --cap-add SYS_NICE publicarray/ntpsec
+# Run detached and use host network
+docker run -d --rm --name ntpsec --net=host --cap-add SYS_TIME --cap-add SYS_NICE publicarray/ntpsec
 # BYO (bring your own) config file
 docker run -it --rm --name ntpsec -p123:123/udp --cap-add SYS_TIME --cap-add SYS_NICE -v "$(pwd)"/ntp.conf:/etc/ntp.conf:ro publicarray/ntpsec
 # Or your own arguments
