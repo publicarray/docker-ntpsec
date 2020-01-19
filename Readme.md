@@ -9,7 +9,7 @@ docker run -it --rm --name ntpsec -p123:123/udp --cap-add SYS_TIME --cap-add SYS
 # Run detached
 docker run -d --rm --name ntpsec -p123:123/udp --cap-add SYS_TIME --cap-add SYS_NICE publicarray/ntpsec
 # Run detached, use host network and limit logfile size
-docker run -d --rm --name ntpsec --net=host --cap-add SYS_TIME --cap-add SYS_NICE publicarray/ntpsec --log-opt max-size=1m --log-opt max-file=3
+docker run -d --rm --name ntpsec --net=host --cap-add SYS_TIME --cap-add SYS_NICE --log-opt max-size=1m --log-opt max-file=3 publicarray/ntpsec
 # BYO (bring your own) config file
 docker run -it --rm --name ntpsec -p123:123/udp --cap-add SYS_TIME --cap-add SYS_NICE -v "$(pwd)"/ntp.conf:/etc/ntp.conf:ro publicarray/ntpsec
 # Or your own arguments
