@@ -9,7 +9,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # https://github.com/ntpsec/ntpsec/releases
-ENV NTPSEC_VERSION 1.1.3
+ENV NTPSEC_VERSION 1.1.8
 ENV NTPSEC_DOWNLOAD_URL "https://ftp.ntpsec.org/pub/releases/ntpsec-${NTPSEC_VERSION}.tar.gz"
 ENV NTPSEC_SHA256 226b4b29d5166ea3d241a24f7bfc2567f289cf6ed826d8aeb9f2f261c1836bde
 
